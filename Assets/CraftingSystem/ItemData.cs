@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHandler,*/ IPointerExitHandler
 {
 	Item item = null;
 
@@ -72,15 +72,6 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
 		if (item != null)
 		{
 			Inventory.instance.DisplayMessage(item);
-		}
-	}
-
-	public void OnPointerClick(PointerEventData eventData)
-	{
-		Debug.Log("ºó°÷ Å¬¸¯");
-		if (eventData.button == PointerEventData.InputButton.Left)
-		{
-			ItemCursor.instance.SetClickItemData(this);
 		}
 	}
 
