@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Crafting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	#region singletone
+	public static Crafting instance;
+	private void Awake()
+	{
+		instance = this;
+	}
+	#endregion
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField] 
+	List<Recipe> recipeList = new List<Recipe>();
+
+	[SerializeField]
+	GameObject craftingPanel;
 }
