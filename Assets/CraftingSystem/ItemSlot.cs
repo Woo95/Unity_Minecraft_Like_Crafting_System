@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 //Holds reference and count of items, manages their visibility in the Inventory panel
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
@@ -42,6 +41,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		if (!m_ItemData && ItemCursor.instance.ItemCursorExist())
 		{
 			ItemCursor.instance.ClearCursor(out m_ItemData, out m_Item);
+
 			m_ItemData.transform.SetParent(transform);
 			m_ItemData.GetComponent<Image>().raycastTarget = true;
 			m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
