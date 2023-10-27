@@ -157,7 +157,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		if (cursorItemData.Count <= 0)
 			Destroy(cursorItemData.gameObject);
 	}
-	public void DropOneItemCursorToSlot() // FIX
+	public void DropOneItemCursorToSlot()
 	{
 		ItemCursor itemCursorIns = ItemCursor.instance;
 		ItemData cursorItemData = itemCursorIns.GetCursorItemData();
@@ -165,11 +165,16 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		cursorItemData.Count -= 1;
 
 		ItemData slotItemData = Instantiate(cursorItemData);
-		slotItemData.transform.SetParent(transform);
-		slotItemData.SetItem(cursorItem);
-		slotItemData.GetComponent<Image>().raycastTarget = true;
-		slotItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-		slotItemData.Count = 1;
+		m_ItemData = slotItemData;
+		m_Item = cursorItem;
+
+		m_ItemData.transform.SetParent(transform);
+		m_ItemData.SetItem(m_Item);
+		
+		m_ItemData.GetComponent<Image>().raycastTarget = true;
+		m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+		m_ItemData.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+		m_ItemData.Count = 1;
 
 		if (cursorItemData.Count <= 0)
 			Destroy(cursorItemData.gameObject);
