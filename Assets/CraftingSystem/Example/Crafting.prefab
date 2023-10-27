@@ -213,8 +213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &2171306439350938989
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,8 +303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &4283079737302405640
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,8 +393,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &5341104286337387077
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,8 +483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &5369365884011511279
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,8 +648,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &6326051085469724234
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,8 +738,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &6797815892356931605
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,8 +962,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &6815833531796543234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,8 +1130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &8110594261028084508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,8 +1220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
-  m_eSlotType: 1
-  m_eSlotStatus: 1
 --- !u!1 &8495378212617744169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1231,7 @@ GameObject:
   - component: {fileID: 790877593408856068}
   - component: {fileID: 5144730279780301324}
   - component: {fileID: 3686970478819112252}
+  - component: {fileID: 8515098880834198939}
   m_Layer: 5
   m_Name: Crafting
   m_TagString: Untagged
@@ -1315,6 +1298,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8515098880834198939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495378212617744169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c25fe6dd956f924fa9f02024ec9d757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8423103550337786685
 PrefabInstance:
   m_ObjectHideFlags: 0
