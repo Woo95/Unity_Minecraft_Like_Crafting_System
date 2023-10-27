@@ -47,7 +47,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-        Debug.Log("인벤토리 슬롯 클릭");
 		if (eventData.button == PointerEventData.InputButton.Left)
 		{
 			if (SlotAndCursor())
