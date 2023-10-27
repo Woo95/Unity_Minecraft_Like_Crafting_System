@@ -13,8 +13,8 @@ public class ItemCursor : MonoBehaviour
 	}
 	#endregion
 
-	public ItemData m_ItemData;
-	public Item m_Item;
+	private ItemData m_ItemData;
+	private Item m_Item;
 
 	private void Update()
 	{
@@ -24,11 +24,22 @@ public class ItemCursor : MonoBehaviour
 		}
 	}
 
-	public void SetClickItemData(ItemData itemData, Item item)
+	public Item GetCursorItem()
+	{
+		return m_Item;
+	}
+
+	public ItemData GetCursorItemData()
+	{
+		return m_ItemData;
+	}
+
+	public void SetCursorItemData(ItemData itemData, Item item)
 	{
 		m_Item = item;
 		m_ItemData = itemData;
 		m_ItemData.transform.SetParent(transform);
+		m_ItemData.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
 	}
 
 	public bool ItemCursorExist()
