@@ -13,8 +13,8 @@ public class ItemCursor : MonoBehaviour
 	}
 	#endregion
 
-	private ItemData m_ItemData;
-	private Item m_Item;
+	public ItemData m_ItemData;
+	public Item m_Item;
 
 	private void Update()
 	{

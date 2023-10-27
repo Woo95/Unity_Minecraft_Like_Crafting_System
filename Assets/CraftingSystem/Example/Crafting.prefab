@@ -213,6 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &2171306439350938989
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &4283079737302405640
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &5341104286337387077
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &5369365884011511279
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &6326051085469724234
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &6797815892356931605
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +974,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &6815833531796543234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &8110594261028084508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Item: {fileID: 0}
   m_ItemData: {fileID: 0}
+  m_eSlotType: 1
+  m_eSlotStatus: 1
 --- !u!1 &8495378212617744169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1422,14 @@ PrefabInstance:
     - target: {fileID: 2687120532114005766, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
       propertyPath: count
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687120532114005766, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_eSlotType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687120532114005766, guid: 80fe0d3f727f69b428a6da25d5b7f260, type: 3}
+      propertyPath: m_eSlotStatus
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
