@@ -26,7 +26,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHand
 	{
 		this.item = item;
 		itemIcon = GetComponent<Image>();
-		Count = 25;
+		Count = 24;
 
 		UpdateGraphic();
 	}
