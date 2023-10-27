@@ -41,6 +41,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		}
 		else
 		{
+			if (m_ItemData)
+			{
+				Destroy(m_ItemData.gameObject);
+				m_ItemData = null;
+			}
 			//m_eSlotStatus = eSlotStatus.ITEM_EMPTY;
 		}
 	}
