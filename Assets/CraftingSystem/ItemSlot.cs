@@ -44,7 +44,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		{
 			if (SlotAndCursor())
 			{
-				Debug.Log("Left click - 1");
 				if (!SlotAndCursorSameItem()) // if not different item
 					SwapItem();
 				else // put cursor item and stack them
@@ -53,12 +52,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 			}
 			else if (SlotAndNoCursor())
 			{
-				Debug.Log("Left click - 2");
 				PickItem(); // pick up on item from the slot to the cursor
 			}
 			else if (NoSlotAndCursor())
 			{
-				Debug.Log("Left click - 3");
 				PlaceItem(); // drop item from the cursor to the slot
 			}
 		}
@@ -66,7 +63,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         {
 			if (SlotAndCursor())
 			{
-				Debug.Log("Right click - 1");
 				if (!SlotAndCursorSameItem()) // if not different item
 					SwapItem();
 				else // place one by one and stack them
@@ -74,12 +70,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 			}
 			else if (SlotAndNoCursor())
 			{
-				Debug.Log("Right click - 2");
 				PickHalfOfItem(); // pick up half of the item from the slot to the cursor
 			}
 			else if (NoSlotAndCursor())
 			{
-				Debug.Log("Right click - 3");
 				DropOneItemCursorToSlot(); // drop each item from the cursor to the slot
 			}
 		}
