@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class Crafting : MonoBehaviour
 {
@@ -136,5 +138,33 @@ public class Crafting : MonoBehaviour
 				return true;
 		}
 		return false;
+	}
+
+	public void InteractInputPanelButton()
+	{
+		// 1. Craft보드에 아이템을 놓거나, 버리거나 할때 작동
+		// 2. Craft보드의 데이터를 string -> // XXXXXXXXXXXXXAAA XX
+		List<ItemSlot> craftingInputList = 
+			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
+
+		string inputCode = "";
+		for (int i = 0; i < craftingInputList.Count; i++)
+		{
+			if (craftingInputList[i].GetItemData() != null)
+			{
+				if (i > 0 && i % 3 == 0)
+					inputCode += "@";
+
+				inputCode += craftingInputList[i].GetItem().itemType.ToString();
+			}
+			else
+			{
+				inputCode += ((eItemType)0).ToString();
+			}
+		}
+
+		// 3. XXXXXXA1A1@A1XXXX -> A1A1@A1
+		// 4. A1A1@A1 이 recipeCode2에 존재하는가?
+		// 5. Output 에 출력
 	}
 }

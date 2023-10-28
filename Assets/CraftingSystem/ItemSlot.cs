@@ -49,6 +49,15 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		}
 	}
 
+	public ItemData GetItemData()
+	{
+		return m_ItemData;
+	}
+	public Item GetItem()
+	{
+		return m_Item;
+	}
+
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		if (eventData.button == PointerEventData.InputButton.Left)
