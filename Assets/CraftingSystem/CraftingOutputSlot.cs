@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class OutputSlot : ItemSlot
+public class CraftingOutputSlot : ItemSlot
 {
 	public void CreateOutputItem(Item outputItem, ItemData outputItemData)
 	{

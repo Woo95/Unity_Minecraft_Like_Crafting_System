@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlotCraftInput : MonoBehaviour, IPointerClickHandler
+public class CraftingInputSlot : MonoBehaviour, IPointerClickHandler
 {
 	public Crafting crafting;
 	public void OnPointerClick(PointerEventData eventData)

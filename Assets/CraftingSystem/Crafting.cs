@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class Crafting : MonoBehaviour
 {
@@ -17,9 +14,13 @@ public class Crafting : MonoBehaviour
 	[SerializeField]
 	GameObject craftingInputPanel;
 	[SerializeField]
-	OutputSlot craftingOutputSlot;
+	CraftingOutputSlot craftingOutputSlot;
 
-	[ContextMenu("Parsing Recipe")]
+	private void OnValidate()
+	{
+		Editor_Recipe();
+	}
+	//[ContextMenu("Show Recipe")]
 	void Editor_Recipe()
 	{
 		Item[] input;
@@ -68,29 +69,9 @@ public class Crafting : MonoBehaviour
 		// A1A1XXXXXA1XXXXXX => A1A1XXXXA1
 		// XXA1XX@XXA1XXXX	 => A1XX@XXA1
 		// XXA1XXXXXXXXXXX   => A1
-
-		//bool removeX = true;
-		//string decrypedRecipeCode;
-		//for (int i = 0; i < recipeCode.Count; i++)
-		//{
-		//	string eachRecipeCode = recipeCode[i];
-		//	decrypedRecipeCode = "";
-		//	for (int j = 0; j < eachRecipeCode.Length; j++)
-		//	{
-		//		char character = eachRecipeCode[j];
-
-		//		if (character == 'X')
-		//			if (removeX) continue;
-		//		else
-		//			removeX = !removeX;
-
-		//		decrypedRecipeCode += character;
-		//	}
-		//	recipeCodeFin.Add(decrypedRecipeCode);
-		//}
 }
 
-	string ModifiedRecipeCode(string _code)
+	string ModifiedRecipeCode(string _code)  // FIX
 	{
 		//Debug.Log(" I1:" + _code);
 		while (true)
@@ -113,24 +94,19 @@ public class Crafting : MonoBehaviour
 			}
 			else break;
 		}
-		//Debug.Log(" I3:" + _code);
+		if (_code.Length > 0)
+		{
+			if (_code.Substring(0, 1) == "@")
+			{
+				_code = _code.Substring(1);
+			}
+		}
 		return _code;
 	}
 
-	public bool CheckCraftingPanel()
+	public int CheckRecipe(string something) // USE
 	{
-		return true;
-	}
-	public bool CheckRecipe(string strInputRecipe)
-	{
-		// replace XX to empty string
-		string modifiedRecipeCode = ModifiedRecipeCode(strInputRecipe);
-		for (int i=0; i < recipeCode.Count; ++i)
-		{
-			if (recipeCodeModified[i] == modifiedRecipeCode)
-				return true;
-		}
-		return false;
+		return 0;
 	}
 
 	public void InteractInputPanel()
