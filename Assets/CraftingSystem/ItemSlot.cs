@@ -2,19 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public enum eSlotType
-{
-	INVENTORY,
-	CRAFT_INPUT,
-	CRAFT_OUTPUT
-}
-
-public enum eSlotStatus
-{
-	ITEM_EXIST,
-	ITEM_EMPTY
-}
-
 //Holds reference and count of items, manages their visibility in the Inventory panel
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
@@ -34,9 +21,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         {
             m_ItemData.SetItem(m_Item);
 			image.raycastTarget = true;
-
-			//m_eSlotType = eSlotType.INVENTORY;
-			//m_eSlotStatus = eSlotStatus.ITEM_EXIST;
 		}
 		else
 		{
@@ -45,7 +29,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 				Destroy(m_ItemData.gameObject);
 				m_ItemData = null;
 			}
-			//m_eSlotStatus = eSlotStatus.ITEM_EMPTY;
 		}
 	}
 
