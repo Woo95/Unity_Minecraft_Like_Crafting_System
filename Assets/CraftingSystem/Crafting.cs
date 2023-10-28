@@ -16,19 +16,20 @@ public class Crafting : MonoBehaviour
 	[SerializeField]
 	CraftingOutputSlot craftingOutputSlot;
 
-	private void OnValidate()
+	private void OnValidate()	// Start Editor
 	{
-		Editor_Recipe();
+		InitializeRecipeCodes();
 	}
 	//[ContextMenu("Show Recipe")]
-	void Editor_Recipe()
+	void InitializeRecipeCodes()
 	{
-		Item[] input;
 		string inputCode;
+		#region Add all Recipe input patterns to the recipeCode List
+		Item[] input;
 		recipeCode.Clear();
 		for (int i=0; i< recipeList.Count; i++)
 		{
-			if (recipeList[i] == null)
+			if (recipeList[i] == null) // error notifier
 			{
 				Debug.LogError("recipeList["+ i +"]" + "was null");
 				recipeList.RemoveAt(i);
@@ -42,7 +43,7 @@ public class Crafting : MonoBehaviour
 				if (input[j] != null)
 				{
 					if (j > 0 && j % 3 == 0)
-						inputCode += "@";
+						inputCode += '@';	// nextline's first element notify char
 
 					inputCode += input[j].itemType.ToString();
 				}
@@ -51,25 +52,25 @@ public class Crafting : MonoBehaviour
 			}
 			recipeCode.Add(inputCode);
 		}
+		#endregion
 
-		//XXXXXXXXA1A1@A1XXXX   => A1A1@A1
-		//A1A1XXXXA1XXXXXXXX   => A1A1XXXXA1
-		string _code;
+		#region Modify all recipeCode and add to the recipeCodeModified List
 		recipeCodeModified.Clear();
 		for (int j = 0; j < recipeCode.Count; j++)
 		{
 			//1. 앞부분지우기
-			_code = recipeCode[j];
-			_code = ModifiedRecipeCode(_code);
-			recipeCodeModified.Add(_code);
+			inputCode = recipeCode[j];
+			inputCode = ModifiedRecipeCode(inputCode);
+			recipeCodeModified.Add(inputCode);
 		}
-
-
+		#endregion
+		//XXXXXXXXA1A1@A1XXXX   => A1A1@A1
+		//A1A1XXXXA1XXXXXXXX   => A1A1XXXXA1
 		// XXXXXXXXXXXA1@A1XXXX => A1A1@A1
 		// A1A1XXXXXA1XXXXXX => A1A1XXXXA1
 		// XXA1XX@XXA1XXXX	 => A1XX@XXA1
 		// XXA1XXXXXXXXXXX   => A1
-}
+	}
 
 	string ModifiedRecipeCode(string _code)  // FIX
 	{
