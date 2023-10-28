@@ -104,9 +104,9 @@ public class Crafting : MonoBehaviour
 		return _code;
 	}
 
-	public int CheckRecipe(string something) // USE
+	public int CheckRecipe(string inputCode)
 	{
-		return 0;
+		return recipeCodeModified.FindIndex(code => code == inputCode);
 	}
 
 	public void InteractInputPanel()
@@ -145,21 +145,14 @@ public class Crafting : MonoBehaviour
 		if (inputCode == "") return;
 		#endregion
 
-		#region Validation of Craft Input matches Recipe
-		int index = -1;
-		for (int i = 0; i < recipeCodeModified.Count; i++)
-		{
-			if (recipeCodeModified[i] == inputCode)
-			{
-				index = i; break;
-			}
-		}
-		if (index == -1) // inputCode was not contained in recipetCodeModified
-			return;
+		#region RecipeCodeModified index by searching from the Modified Craft Input Panel Code
+		int foundRecipeIndex = recipeCodeModified.FindIndex(code => code == inputCode);
+		if (foundRecipeIndex == -1) return; // -1 means not found
 		#endregion
 
-
-		Item outputItem = recipeList[index].output;
+		#region Generate Item to the Output Slot
+		Item outputItem = recipeList[foundRecipeIndex].output;
 		craftingOutputSlot.CreateOutputItem(outputItem, outputItemDataFrame);
+		#endregion
 	}	
 }
