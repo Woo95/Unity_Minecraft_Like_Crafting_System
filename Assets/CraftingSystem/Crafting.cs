@@ -12,7 +12,7 @@ public class Crafting : MonoBehaviour
 	[SerializeField]
 	List<string> recipeCode = new List<string>();
 	[SerializeField]
-	List<string> recipeCodeDecrypted = new List<string>();
+	List<string> recipeCodeModified = new List<string>();
 
 	[SerializeField]
 	GameObject craftingInputPanel;
@@ -54,13 +54,13 @@ public class Crafting : MonoBehaviour
 		//XXXXXXXXA1A1@A1XXXX   => A1A1@A1
 		//A1A1XXXXA1XXXXXXXX   => A1A1XXXXA1
 		string _code;
-		recipeCodeDecrypted.Clear();
+		recipeCodeModified.Clear();
 		for (int j = 0; j < recipeCode.Count; j++)
 		{
 			//1. 앞부분지우기
 			_code = recipeCode[j];
-			_code = DecryptedRecipeCode(_code);
-			recipeCodeDecrypted.Add(_code);
+			_code = ModifiedRecipeCode(_code);
+			recipeCodeModified.Add(_code);
 		}
 
 
@@ -90,7 +90,7 @@ public class Crafting : MonoBehaviour
 		//}
 }
 
-	string DecryptedRecipeCode(string _code)
+	string ModifiedRecipeCode(string _code)
 	{
 		//Debug.Log(" I1:" + _code);
 		while (true)
@@ -98,6 +98,7 @@ public class Crafting : MonoBehaviour
 			if (_code.Substring(0, 1) == "X")
 			{
 				_code = _code.Substring(1);
+				if (_code == "") return "";
 			}
 			else break;
 		}
@@ -123,10 +124,10 @@ public class Crafting : MonoBehaviour
 	public bool CheckRecipe(string strInputRecipe)
 	{
 		// replace XX to empty string
-		string decryptedRecipeCode = DecryptedRecipeCode(strInputRecipe);
+		string modifiedRecipeCode = ModifiedRecipeCode(strInputRecipe);
 		for (int i=0; i < recipeCode.Count; ++i)
 		{
-			if (recipeCodeDecrypted[i] == decryptedRecipeCode)
+			if (recipeCodeModified[i] == modifiedRecipeCode)
 				return true;
 		}
 		return false;
@@ -134,11 +135,10 @@ public class Crafting : MonoBehaviour
 
 	public void InteractInputPanel()
 	{
-		// 1. Craft보드에 아이템을 놓거나, 버리거나 할때 작동
-		// 2. Craft보드의 데이터를 string -> // XXXXXXXXXXXXXAAA XX
 		List<ItemSlot> craftingInputList = 
 			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
 
+		#region Craft Input Panel Code - Before Modified
 		string inputCode = "";
 		for (int i = 0; i < craftingInputList.Count; i++)
 		{
@@ -154,11 +154,29 @@ public class Crafting : MonoBehaviour
 				inputCode += ((eItemType)0).ToString();
 			}
 		}
+		Debug.Log("Current InputPanel Code - (Plain): " + inputCode);
+		#endregion
 
-		Debug.Log(inputCode);
+		#region Craft Input Panel Code - After Modified
+		inputCode = ModifiedRecipeCode(inputCode);
+		Debug.Log("Current InputPanel Code - (Modified): " + inputCode);
+		if (inputCode == "") return;
+		#endregion
 
-		// 3. XXXXXXA1A1@A1XXXX -> A1A1@A1
-		// 4. A1A1@A1 이 recipeCode2에 존재하는가?
-		// 5. Output 에 출력
+		#region Validation of Craft Input matches Recipe
+		int index = -1;
+		for (int i = 0; i < recipeCodeModified.Count; i++)
+		{
+			if (recipeCodeModified[i] == inputCode)
+			{
+				index = i; break;
+			}
+		}
+		if (index == -1) // inputCode was not contained in recipetCodeModified
+			return;
+		#endregion
+
+
+		Item outputItem = recipeList[index].output;
 	}
 }
