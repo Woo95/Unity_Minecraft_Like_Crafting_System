@@ -21,7 +21,9 @@ public class Crafting : MonoBehaviour
 	List<string> recipeCodeDecrypted = new List<string>();
 
 	[SerializeField]
-	GameObject craftingPanel;
+	GameObject craftingInputPanel;
+	[SerializeField]
+	ItemSlot craftingOutputSlot;
 
 	[ContextMenu("Parsing Recipe")]
 	void Editor_Recipe()
