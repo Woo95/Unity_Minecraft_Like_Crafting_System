@@ -15,3 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 720a7d9f64013ef41acc4c5f46c1280f, type: 3}
   description: An ordinary clover. Not particularly lucky, but not unlucky either
   isConsumable: 1
+  itemType: 6

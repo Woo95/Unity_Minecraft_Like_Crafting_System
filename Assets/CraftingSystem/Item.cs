@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum eItemType
+{
+    XX, // empty
+    A1, A2, A3, A4,
+    C1, C2, C3,
+    F1, O1, Y1
+}
 //Attribute which allows right click->Create
 [CreateAssetMenu(fileName = "New Item", menuName = "Items/New Item")]
 public class Item : ScriptableObject //Extending SO allows us to have an object which exists in the project, not in the scene
@@ -10,6 +17,7 @@ public class Item : ScriptableObject //Extending SO allows us to have an object 
     [TextArea]
     public string description = "";
     public bool isConsumable = false;
+    public eItemType itemType;
 
     public void Use()
     {

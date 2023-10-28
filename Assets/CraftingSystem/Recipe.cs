@@ -13,6 +13,6 @@ public class Recipe : ScriptableObject //Extending SO allows us to have an objec
 
 	public void Use()
 	{
-		
+
 	}
 }

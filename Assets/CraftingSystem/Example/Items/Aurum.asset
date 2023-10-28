@@ -15,4 +15,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 85c8c026991b4404ebe5bacaed13d132, type: 3}
   description: The element known as Ag. Or was it Ab? or Ae? Anyway it is shiny and
     valuable
-  isConsumable: 1
+  isConsumable: 0
+  itemType: 4

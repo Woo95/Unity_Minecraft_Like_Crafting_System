@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8290b75b2cbd6af45b7ad408c0444bf8, type: 3}
-  m_Name: AurumCoin
+  m_Name: Aurum Coin
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ea9c3a088dc5916499ccf763dd361320, type: 3}
-  description: The element known as Ag. Or was it Ab? or Ae? Anyway it is shiny and
-    valuable
-  isConsumable: 1
+  description: 'The Aurum coin is a currency used exclusively to produce Aurum, a
+    shiny and highly protective bar.
+
+'
+  isConsumable: 0
+  itemType: 3
