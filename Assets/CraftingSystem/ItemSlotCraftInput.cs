@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlotCraftInput : IPointerClickHandler, IPointerClickHandler
+public class ItemSlotCraftInput : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public Crafting crafting;
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		StartCoroutine(CO_CraftInputHandler());
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	IEnumerator CO_CraftInputHandler()	// make sure ItemSlot ClickHandler runs first
+	{
+		yield return null;
+		crafting.InteractInputPanel();
+	}
 }

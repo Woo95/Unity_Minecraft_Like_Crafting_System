@@ -7,14 +7,6 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class Crafting : MonoBehaviour
 {
-	#region singletone
-	public static Crafting instance;
-	private void Awake()
-	{
-		instance = this;
-	}
-	#endregion
-
 	[SerializeField] 
 	List<Recipe> recipeList = new List<Recipe>();
 	[SerializeField]
@@ -140,7 +132,7 @@ public class Crafting : MonoBehaviour
 		return false;
 	}
 
-	public void InteractInputPanelButton()
+	public void InteractInputPanel()
 	{
 		// 1. Craft보드에 아이템을 놓거나, 버리거나 할때 작동
 		// 2. Craft보드의 데이터를 string -> // XXXXXXXXXXXXXAAA XX
@@ -162,6 +154,8 @@ public class Crafting : MonoBehaviour
 				inputCode += ((eItemType)0).ToString();
 			}
 		}
+
+		Debug.Log(inputCode);
 
 		// 3. XXXXXXA1A1@A1XXXX -> A1A1@A1
 		// 4. A1A1@A1 이 recipeCode2에 존재하는가?
