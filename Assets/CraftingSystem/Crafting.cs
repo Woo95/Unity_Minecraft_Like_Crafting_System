@@ -17,7 +17,7 @@ public class Crafting : MonoBehaviour
 	[SerializeField]
 	GameObject craftingInputPanel;
 	[SerializeField]
-	ItemSlot craftingOutputSlot;
+	OutputSlot craftingOutputSlot;
 
 	[ContextMenu("Parsing Recipe")]
 	void Editor_Recipe()
@@ -135,19 +135,25 @@ public class Crafting : MonoBehaviour
 
 	public void InteractInputPanel()
 	{
-		List<ItemSlot> craftingInputList = 
+		craftingOutputSlot.DestroyCrafting();
+
+		List<ItemSlot> craftInputList = 
 			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
 
 		#region Craft Input Panel Code - Before Modified
+		ItemData outputItemDataFrame = null;
 		string inputCode = "";
-		for (int i = 0; i < craftingInputList.Count; i++)
+		for (int i = 0; i < craftInputList.Count; i++)
 		{
-			if (craftingInputList[i].GetItemData() != null)
+			if (craftInputList[i].GetItemData() != null)
 			{
 				if (i > 0 && i % 3 == 0)
 					inputCode += "@";
 
-				inputCode += craftingInputList[i].GetItem().itemType.ToString();
+				inputCode += craftInputList[i].GetItem().itemType.ToString();
+
+				// save empty frame
+				outputItemDataFrame = craftInputList[i].GetItemData();
 			}
 			else
 			{
@@ -178,5 +184,6 @@ public class Crafting : MonoBehaviour
 
 
 		Item outputItem = recipeList[index].output;
-	}
+		craftingOutputSlot.CreateOutputItem(outputItem, outputItemDataFrame);
+	}	
 }

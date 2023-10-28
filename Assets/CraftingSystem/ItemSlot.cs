@@ -8,11 +8,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Item m_Item = null;
 
     [SerializeField]
-    ItemData m_ItemData;
-	Image image;
-
-	//public eSlotType m_eSlotType;
-	//public eSlotStatus m_eSlotStatus;
+    protected ItemData m_ItemData;
+	protected Image image;
 
 	void Start()
     {
