@@ -65,7 +65,7 @@ public class Crafting : MonoBehaviour
 		return "";
 	}
 
-	public void InteractInputPanel()    // function calls from CraftingInputSlot.cs
+	public void InteractInputPanel()    // function calls from the CraftingInputSlot.cs
 	{
 		craftingOutputSlot.DestroyCrafting();
 
