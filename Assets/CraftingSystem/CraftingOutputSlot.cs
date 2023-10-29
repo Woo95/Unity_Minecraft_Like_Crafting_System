@@ -1,11 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CraftingOutputSlot : ItemSlot
 {
-	public void CreateOutputItem(Item outputItem, ItemData outputItemData)
+	public void CreateOutputItem(Item outputItem, List<ItemSlot> craftInputList)
 	{
+		ItemData outputItemData = null;
+		foreach (ItemSlot item in craftInputList)
+		{
+			if (item.GetItemData() != null)
+			{
+				outputItemData = item.GetItemData();
+				break;
+			}
+		}
+		if (outputItemData == null) // error checker
+			return;
+
 		m_Item = outputItem;
 		m_ItemData = Instantiate(outputItemData);
 

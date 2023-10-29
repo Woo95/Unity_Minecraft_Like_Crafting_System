@@ -1203,6 +1203,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeCode.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeCode.Array.data[2]
+      value: O1O1O1XXXXXXXXXXXX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: df579fe0c2dd06444af01a400008f9ba, type: 2}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeCodeModified.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeCodeModified.Array.data[2]
+      value: O1O1O1
+      objectReference: {fileID: 0}
     - target: {fileID: 8751068148422374571, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
