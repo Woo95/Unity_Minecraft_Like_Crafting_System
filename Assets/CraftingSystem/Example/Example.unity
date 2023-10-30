@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &152205978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6815833531796543234, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+  m_PrefabInstance: {fileID: 6615870918616632460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1393358666
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +965,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5229912709238228681, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: craftingInputPanel
+      value: 
+      objectReference: {fileID: 152205978}
     - target: {fileID: 6653199005621551154, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

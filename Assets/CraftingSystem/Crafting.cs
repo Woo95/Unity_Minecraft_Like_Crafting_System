@@ -8,14 +8,13 @@ public class Crafting : MonoBehaviour
 	List<Recipe> recipeList = new List<Recipe>();
 	[SerializeField]
 	List<string> recipeCode = new List<string>();
-	//[SerializeField]
-	//List<string> recipeCodeModified = new List<string>();
 
 	[SerializeField]
 	GameObject craftingInputPanel;
 	[SerializeField]
 	CraftingOutputSlot craftingOutputSlot;
 
+	#region GenerateInputCodeFromRecipes at start
 	private void OnValidate()	// Start Editor
 	{
 		GenerateInputCodeFromRecipes();
@@ -37,6 +36,7 @@ public class Crafting : MonoBehaviour
 			recipeCode.Add(inputCode);
 		}
 	}
+	#endregion
 
 	string GenerateInputCode(Item[] input)
 	{
@@ -65,9 +65,9 @@ public class Crafting : MonoBehaviour
 		return "";
 	}
 
-	public void InteractInputPanel()    // function calls from the CraftingInputSlot.cs
+	public void InteractInputPanel()    // function calls from the CraftingInputSlot.cs only if any change on InputPanel
 	{
-		craftingOutputSlot.DestroyItem();
+		craftingOutputSlot.DestroyItem();	// to reset output item
 
 		List<ItemSlot> craftInputList =
 			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
@@ -80,6 +80,8 @@ public class Crafting : MonoBehaviour
 
 		string inputCode = GenerateInputCode(input);
 		if (inputCode == "") return;
+
+		Debug.Log(inputCode);
 
 		int foundRecipeIndex = recipeCode.FindIndex(code => code == inputCode);
 		if (foundRecipeIndex == -1) return; // -1 means not found

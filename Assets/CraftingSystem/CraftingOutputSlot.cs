@@ -8,39 +8,32 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 	public List<ItemSlot> m_CraftInputList;
 	public override void OnPointerClick(PointerEventData eventData)
 	{
-		Debug.Log("Baby");
-
 		if (SlotAndCursor())
 		{
 			if (SlotAndCursorSameItem())
 			{
 				StackAllItemSlotToCursor();
-				UpdateInputPanel(m_CraftInputList);
+				UpdateInputPanel();
 			}
 		}
 		else if (SlotAndNoCursor())
         {
 			PickItem();
-			UpdateInputPanel(m_CraftInputList);
+			UpdateInputPanel();
 		}
 	}
 
+	#region OutputItem Handler
 	public void CreateOutputItem(Item outputItem, List<ItemSlot> craftInputList)
 	{
-		ItemData outputItemData = null;
-		foreach (ItemSlot item in craftInputList)
-		{
-			if (item.GetItemData() != null)
-			{
-				outputItemData = item.GetItemData();
-				break;
-			}
-		}
-		if (outputItemData == null) // error checker
+		m_CraftInputList = craftInputList;
+
+		ItemData outputPrefab = OutputItemData();
+		if (outputPrefab == null) // error checker
 			return;
 
 		m_Item = outputItem;
-		m_ItemData = Instantiate(outputItemData);
+		m_ItemData = Instantiate(outputPrefab);
 
 		m_ItemData.transform.SetParent(transform);
 		m_ItemData.SetItem(m_Item);
@@ -48,12 +41,42 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 		m_ItemData.GetComponent<Image>().raycastTarget = true;
 		m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 		m_ItemData.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-		m_ItemData.Count = 1;
-
-		m_CraftInputList = craftInputList;
+		m_ItemData.Count = OutputItemAmount();
 	}
 
-	public void StackAllItemSlotToCursor()
+	int OutputItemAmount()
+	{
+		int outputItemAmount = int.MaxValue;
+		foreach (ItemSlot item in m_CraftInputList)
+		{
+			ItemData itemData = item.GetItemData();
+			if (itemData != null)
+			{
+				if (itemData.Count <= outputItemAmount)
+				{
+					outputItemAmount = itemData.Count;
+				}
+			}
+		}
+		return outputItemAmount;
+	}
+
+	ItemData OutputItemData()
+	{
+		ItemData outputItemData = null;
+		foreach (ItemSlot item in m_CraftInputList)
+		{
+			ItemData itemData = item.GetItemData();
+			if (itemData != null)
+			{
+				outputItemData = itemData;
+				break;
+			}
+		}
+		return outputItemData;
+	}
+
+	void StackAllItemSlotToCursor()
 	{
 		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();
 
@@ -65,21 +88,32 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 	public void DestroyItem()
 	{
 		if (m_ItemData != null)
-			Destroy(m_ItemData.gameObject);
-	}
-
-	public void UpdateInputPanel(List<ItemSlot> craftInputList)
-	{
-		foreach (ItemSlot item in craftInputList)
 		{
-			ItemData itemData = item.GetItemData();
+			Destroy(m_ItemData.gameObject);
+			m_ItemData = null;
+		}
+	}
+	#endregion
+
+	#region InputPanel Handler
+	void UpdateInputPanel()
+	{
+		int lowestItemCount = OutputItemAmount();
+		foreach (ItemSlot itemSlot in m_CraftInputList)
+		{
+			ItemData itemData = itemSlot.GetItemData();
+			
 			if (itemData != null)
 			{
-				if (itemData.Count <= 1)
+				if (itemData.Count <= lowestItemCount)
+				{
+					itemSlot.m_Item = null;
 					Destroy(itemData.gameObject);
+				}
 				else
-					itemData.Count -= 1;
+					itemData.Count -= lowestItemCount;
 			}
 		}
 	}
+	#endregion
 }

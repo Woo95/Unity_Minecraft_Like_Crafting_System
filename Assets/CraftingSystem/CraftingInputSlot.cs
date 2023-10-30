@@ -16,19 +16,4 @@ public class CraftingInputSlot : MonoBehaviour, IPointerClickHandler
 		yield return null;
 		crafting.InteractInputPanel();
 	}
-
-	//public void UpdatePannel(List<ItemSlot> craftInputList)
-	//{
-	//	foreach (ItemSlot item in craftInputList)
-	//	{
-	//		ItemData itemData = item.GetItemData();
-	//		if (itemData != null)
-	//		{
-	//			if (itemData.Count <= 1)
-	//				Destroy(itemData.gameObject);
-	//			else
-	//				itemData.Count -= 1;
-	//		}
-	//	}
-	//}
 }
