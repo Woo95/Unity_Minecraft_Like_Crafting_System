@@ -24,7 +24,7 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 	}
 
 	#region OutputItem Handler
-	public void CreateOutputItem(Item outputItem, List<ItemSlot> craftInputList)
+	public void CreateOutputItem(Recipe foundRecipe, List<ItemSlot> craftInputList)
 	{
 		m_CraftInputList = craftInputList;
 
@@ -32,7 +32,7 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 		if (outputPrefab == null) // error checker
 			return;
 
-		m_Item = outputItem;
+		m_Item = foundRecipe.output;
 		m_ItemData = Instantiate(outputPrefab);
 
 		m_ItemData.transform.SetParent(transform);
@@ -41,10 +41,10 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 		m_ItemData.GetComponent<Image>().raycastTarget = true;
 		m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 		m_ItemData.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-		m_ItemData.Count = OutputItemAmount();
+		m_ItemData.Count = MinInputItemAmount() * foundRecipe.outputAmount;
 	}
 
-	int OutputItemAmount()
+	int MinInputItemAmount()
 	{
 		int outputItemAmount = int.MaxValue;
 		foreach (ItemSlot item in m_CraftInputList)
@@ -98,7 +98,7 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 	#region InputPanel Handler
 	void UpdateInputPanel()
 	{
-		int lowestItemCount = OutputItemAmount();
+		int lowestItemCount = MinInputItemAmount();
 		foreach (ItemSlot itemSlot in m_CraftInputList)
 		{
 			ItemData itemData = itemSlot.GetItemData();

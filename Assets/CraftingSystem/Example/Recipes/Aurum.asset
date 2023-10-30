@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   output: {fileID: 11400000, guid: f2fcedea16104a444a1b572ef9e6654b, type: 2}
-  description: 
+  outputAmount: 2

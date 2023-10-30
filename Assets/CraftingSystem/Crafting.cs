@@ -38,6 +38,7 @@ public class Crafting : MonoBehaviour
 	}
 	#endregion
 
+	#region Code Handler
 	string GenerateInputCode(Item[] input)
 	{
 		string inputCode = "";
@@ -64,7 +65,9 @@ public class Crafting : MonoBehaviour
 
 		return "";
 	}
+	#endregion
 
+	#region Craft System
 	public void InteractInputPanel()    // function calls from the CraftingInputSlot.cs only if any change on InputPanel
 	{
 		craftingOutputSlot.DestroyItem();	// to reset output item
@@ -91,7 +94,8 @@ public class Crafting : MonoBehaviour
 
 	void CreateOutputItem(int foundRecipeIndex, List<ItemSlot> craftInputList)
 	{
-		Item outputItem = recipeList[foundRecipeIndex].output;
-		craftingOutputSlot.CreateOutputItem(outputItem, craftInputList);
+		Recipe foundRecipe = recipeList[foundRecipeIndex];
+		craftingOutputSlot.CreateOutputItem(foundRecipe, craftInputList);
 	}
+	#endregion
 }
