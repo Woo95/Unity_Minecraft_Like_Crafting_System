@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2fcedea16104a444a1b572ef9e6654b, type: 2}
   - {fileID: 11400000, guid: f2fcedea16104a444a1b572ef9e6654b, type: 2}
   output: {fileID: 11400000, guid: 2093c87874809904ea45062605249424, type: 2}
-  description: 
+  outputAmount: 1

@@ -14,12 +14,12 @@ public class Crafting : MonoBehaviour
 	[SerializeField]
 	CraftingOutputSlot craftingOutputSlot;
 
-	#region GenerateInputCodeFromRecipes at start
-	private void OnValidate()	// Start Editor
+	#region GenerateInputCodeFromRecipes before start
+	private void OnValidate()   // calls whenever the asset is modified in the Unity Editor.
 	{
 		GenerateInputCodeFromRecipes();
 	}
-	void GenerateInputCodeFromRecipes() // Add all Recipe input patterns to the recipeCode List
+	void GenerateInputCodeFromRecipes() // add all Recipe input patterns to the recipeCode List
 	{
 		recipeCode.Clear();
 		for (int i=0; i< recipeList.Count; i++)
