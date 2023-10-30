@@ -11,9 +11,24 @@ public class CraftingInputSlot : MonoBehaviour, IPointerClickHandler
 		StartCoroutine(CO_CraftInputHandler());
 	}
 
-	IEnumerator CO_CraftInputHandler()	// make sure ItemSlot ClickHandler runs first
+	IEnumerator CO_CraftInputHandler()	// to make sure ItemSlot ClickHandler runs first
 	{
 		yield return null;
 		crafting.InteractInputPanel();
 	}
+
+	//public void UpdatePannel(List<ItemSlot> craftInputList)
+	//{
+	//	foreach (ItemSlot item in craftInputList)
+	//	{
+	//		ItemData itemData = item.GetItemData();
+	//		if (itemData != null)
+	//		{
+	//			if (itemData.Count <= 1)
+	//				Destroy(itemData.gameObject);
+	//			else
+	//				itemData.Count -= 1;
+	//		}
+	//	}
+	//}
 }

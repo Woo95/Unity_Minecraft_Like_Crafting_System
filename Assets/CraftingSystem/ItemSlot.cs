@@ -38,8 +38,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		return m_Item;
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public virtual void OnPointerClick(PointerEventData eventData)
 	{
+		Debug.Log("Parent");
 		if (eventData.button == PointerEventData.InputButton.Left)
 		{
 			if (SlotAndCursor())

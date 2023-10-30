@@ -67,7 +67,7 @@ public class Crafting : MonoBehaviour
 
 	public void InteractInputPanel()    // function calls from the CraftingInputSlot.cs
 	{
-		craftingOutputSlot.DestroyCrafting();
+		craftingOutputSlot.DestroyItem();
 
 		List<ItemSlot> craftInputList =
 			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
