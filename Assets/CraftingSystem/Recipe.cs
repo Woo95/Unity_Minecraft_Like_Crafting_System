@@ -12,7 +12,7 @@ public class Recipe : ScriptableObject //Extending SO allows us to have an objec
 
 	private void OnValidate()
 	{
-		// force the outputAmount always greater than or equal to 1.
+		// force the outputAmount always greater than 0
 		outputAmount = Mathf.Max(outputAmount, 1);
 	}
 }
