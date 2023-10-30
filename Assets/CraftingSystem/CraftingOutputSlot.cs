@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 {
-	public List<ItemSlot> m_CraftInputList;
+	private List<ItemSlot> m_CraftInputList;
 	public override void OnPointerClick(PointerEventData eventData)
 	{
 		if (SlotAndCursor())

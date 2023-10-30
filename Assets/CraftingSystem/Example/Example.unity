@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &152205978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6815833531796543234, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-  m_PrefabInstance: {fileID: 6615870918616632460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1393358666
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,10 +960,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5229912709238228681, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: craftingInputPanel
-      value: 
-      objectReference: {fileID: 152205978}
     - target: {fileID: 6653199005621551154, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1021,34 +1012,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crafting
       objectReference: {fileID: 0}
-    - target: {fileID: 8495378212617744169, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: recipeCode.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: recipeList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: recipeCode.Array.data[2]
-      value: O1XXXXO1XXXXO1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: recipeList.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: df579fe0c2dd06444af01a400008f9ba, type: 2}
-    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: recipeCodeModified.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: recipeCodeModified.Array.data[2]
-      value: O1O1O1
-      objectReference: {fileID: 0}
     - target: {fileID: 8751068148422374571, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1096,14 +1059,6 @@ PrefabInstance:
     - target: {fileID: 8835881445716404498, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924774586344785985, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924774586344785986, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1145,10 +1100,6 @@ PrefabInstance:
     - target: {fileID: 830261566994140246, guid: 50147ce332354bc45a153732d66a7273, type: 3}
       propertyPath: m_Name
       value: Inventory
-      objectReference: {fileID: 0}
-    - target: {fileID: 830261566994140246, guid: 50147ce332354bc45a153732d66a7273, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1822491583240510133, guid: 50147ce332354bc45a153732d66a7273, type: 3}
       propertyPath: m_AnchorMax.y
