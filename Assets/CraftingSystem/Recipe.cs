@@ -8,11 +8,4 @@ public class Recipe : ScriptableObject //Extending SO allows us to have an objec
 {
 	public Item[] input = new Item[9];
 	public Item output;
-	[TextArea]
-	public string description = "";
-
-	public void Use()
-	{
-
-	}
 }
