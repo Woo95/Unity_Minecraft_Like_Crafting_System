@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Recipe", menuName = "Items/New Recipe")]
 public class Recipe : ScriptableObject
 {
-	public Item[] input = new Item[9];	// 9 = 3x3 crafting input pannel
+	public Item[] input = new Item[9];	// 9 => 3x3 crafting input pannel. Could be any nXn!
 	public Item output;
 	public int outputAmount = 1;
 
