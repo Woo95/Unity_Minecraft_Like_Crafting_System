@@ -44,10 +44,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		{
 			if (SlotAndCursor())
 			{
-				if (!SlotAndCursorSameItem()) // if not different item
+				if (!SlotAndCursorSameItem()) // if not same item
 					SwapItem();
-				else // put cursor item and stack them
-					StackAllItemCursorToSlot();
+				else 
+					StackAllItemCursorToSlot(); // put cursor item and stack them
 
 			}
 			else if (SlotAndNoCursor())
@@ -63,10 +63,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         {
 			if (SlotAndCursor())
 			{
-				if (!SlotAndCursorSameItem()) // if not different item
+				if (!SlotAndCursorSameItem()) // if not same item
 					SwapItem();
-				else // place one by one and stack them
-					StackOneItemCursorToSlot();
+				else
+					StackOneItemCursorToSlot(); // place one by one and stack them
 			}
 			else if (SlotAndNoCursor())
 			{
