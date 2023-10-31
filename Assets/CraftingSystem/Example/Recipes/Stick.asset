@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c25f831b93c7d04aaeafcd49bac4679, type: 3}
-  m_Name: TestGiukZa
+  m_Name: Stick
   m_EditorClassIdentifier: 
   input:
   - {fileID: 0}
-  - {fileID: 11400000, guid: fa0fc4773150f9948a8a0b25ae0b0744, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: fa0fc4773150f9948a8a0b25ae0b0744, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: cb9cbfdc9e114ea41afc552d58ba8c0c, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: fa0fc4773150f9948a8a0b25ae0b0744, type: 2}
+  - {fileID: 11400000, guid: cb9cbfdc9e114ea41afc552d58ba8c0c, type: 2}
   - {fileID: 0}
-  output: {fileID: 11400000, guid: fc5a9c877f66e5047ba8f3f04c98f5df, type: 2}
-  outputAmount: 1
+  output: {fileID: 11400000, guid: 98d2e20951e517b4f9758a83c1f8ef27, type: 2}
+  outputAmount: 4

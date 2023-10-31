@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8290b75b2cbd6af45b7ad408c0444bf8, type: 3}
-  m_Name: Clover
+  m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 720a7d9f64013ef41acc4c5f46c1280f, type: 3}
-  description: An ordinary clover. Not particularly lucky, but not unlucky either
+  icon: {fileID: 21300000, guid: 49f6e4a9543cd6e48ac6cf475e175e14, type: 3}
+  description: A pickaxe that looks like a mushroom. I swear, it's pickaxe.
   isConsumable: 1
-  itemType: 8
+  itemType: 13

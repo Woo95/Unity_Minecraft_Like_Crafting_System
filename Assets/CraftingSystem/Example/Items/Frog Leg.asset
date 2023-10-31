@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: dd91b7d1bd44a1a4a8789729a514fcb1, type: 3}
   description: So fresh it still twiches
   isConsumable: 1
-  itemType: 8
+  itemType: 11

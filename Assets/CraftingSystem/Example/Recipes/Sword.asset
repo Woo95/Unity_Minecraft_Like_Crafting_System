@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c25f831b93c7d04aaeafcd49bac4679, type: 3}
-  m_Name: Aurum
+  m_Name: Sword
   m_EditorClassIdentifier: 
   input:
-  - {fileID: 11400000, guid: 21fadbf5a74fbd34782ced7dcd99d508, type: 2}
-  - {fileID: 11400000, guid: 21fadbf5a74fbd34782ced7dcd99d508, type: 2}
-  - {fileID: 11400000, guid: 21fadbf5a74fbd34782ced7dcd99d508, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: cb9cbfdc9e114ea41afc552d58ba8c0c, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: cb9cbfdc9e114ea41afc552d58ba8c0c, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 98d2e20951e517b4f9758a83c1f8ef27, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  output: {fileID: 11400000, guid: f2fcedea16104a444a1b572ef9e6654b, type: 2}
+  output: {fileID: 11400000, guid: 6258e1e9b41783d4fac6f0d889b1b0c4, type: 2}
   outputAmount: 1

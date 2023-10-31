@@ -1394,11 +1394,11 @@ MonoBehaviour:
   recipeList:
   - {fileID: 11400000, guid: 23e98377d3b19e8449e4701906d84891, type: 2}
   - {fileID: 11400000, guid: 047f4e963fda08745b0afcdacdd590b3, type: 2}
-  - {fileID: 11400000, guid: df579fe0c2dd06444af01a400008f9ba, type: 2}
+  - {fileID: 11400000, guid: 0173ef921d0874146bd870c5b1f92c3a, type: 2}
   recipeCode:
   - A3A3A3
   - A4XXA4A4A4A4A4A4A4
-  - O1XXXXO1XXXXO1
+  - 
   craftingInputPanel: {fileID: 6815833531796543234}
   craftingOutputSlot: {fileID: 5229912709238228681}
 --- !u!1001 &8423103550337786685

@@ -16,4 +16,4 @@ MonoBehaviour:
   description: A Yellow is an exotic fruit rich in potassium, named by the same person
     who named the Orange.
   isConsumable: 1
-  itemType: 10
+  itemType: 18
