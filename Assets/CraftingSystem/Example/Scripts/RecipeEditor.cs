@@ -6,14 +6,14 @@ public class RecipeEditor : Editor
 {
 	public override void OnInspectorGUI()
 	{
-		Recipe recipe = (Recipe)target; // Cast the target to the Recipe type
+		Recipe recipe = (Recipe)target; // cast the target to the Recipe type
 
 		EditorGUI.BeginChangeCheck();
 
 		int gridSize = Mathf.CeilToInt(Mathf.Sqrt(recipe.input.Length));
 
 		EditorGUILayout.LabelField("Recipe Input (3x3):", EditorStyles.boldLabel);
-		for (int i = 0; i < gridSize; i++) // Display the 3x3 grid of input items
+		for (int i = 0; i < gridSize; i++) // display the 3x3 grid of input items
 		{
 			EditorGUILayout.BeginHorizontal();
 			for (int j = 0; j < gridSize; j++)
