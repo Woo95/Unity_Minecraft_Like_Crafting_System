@@ -21,8 +21,8 @@ public class Item : ScriptableObject //Extending SO allows us to have an object 
     public bool isConsumable = false;
     public eItemType itemType;
 
-    public void Use()
-    {
-        Debug.Log("This is the Use() function of item: " + name + " - " + description);
-    }
+    //public void Use()
+    //{
+    //    Debug.Log("This is the Use() function of item: " + name + " - " + description);
+    //}
 }

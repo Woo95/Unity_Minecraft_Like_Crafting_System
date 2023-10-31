@@ -52,22 +52,22 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHand
 		}
 	}
 
-	public void UseItemInSlot()
-	{
-		if (CanUseItem())
-		{
-			m_Item.Use();
-			if (m_Item.isConsumable)
-			{
-				Count--;
-			}
-		}
-	}
+	//public void UseItemInSlot()
+	//{
+	//	if (CanUseItem())
+	//	{
+	//		m_Item.Use();
+	//		if (m_Item.isConsumable)
+	//		{
+	//			Count--;
+	//		}
+	//	}
+	//}
 
-	private bool CanUseItem()
-	{
-		return (m_Item != null && count > 0);
-	}
+	//private bool CanUseItem()
+	//{
+	//	return (m_Item != null && count > 0);
+	//}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
