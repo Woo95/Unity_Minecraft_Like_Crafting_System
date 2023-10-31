@@ -4,11 +4,13 @@ using UnityEngine;
 [CustomEditor(typeof(Recipe))]
 public class RecipeEditor : Editor
 {
-	private const int gridSize = 3;
-
 	public override void OnInspectorGUI()
 	{
+		Recipe recipe = (Recipe)target; // Cast the target to the Recipe type
+
 		EditorGUI.BeginChangeCheck();
+
+		int gridSize = Mathf.CeilToInt(Mathf.Sqrt(recipe.input.Length));
 
 		EditorGUILayout.LabelField("Recipe Input (3x3):", EditorStyles.boldLabel);
 		for (int i = 0; i < gridSize; i++) // Display the 3x3 grid of input items
