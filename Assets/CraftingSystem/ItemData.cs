@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHandler,*/ IPointerExitHandler
 {
-	Item item = null;
+	Item m_Item = null;
 
-	private int count = 0;
+	[SerializeField]
+	int count = 0;
 	public int Count
 	{
 		get { return count; }
@@ -24,9 +25,10 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHand
 
 	public void SetItem(Item item)
 	{
-		this.item = item;
+		m_Item = item;
 		itemIcon = GetComponent<Image>();
-		Count = 24;
+		gameObject.name = item.name;
+		count = count == 0 ? 1 : count;
 
 		UpdateGraphic();
 	}
@@ -43,7 +45,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHand
 		else
 		{
 			//set sprite to the one from the item
-			itemIcon.sprite = item.icon;
+			itemIcon.sprite = m_Item.icon;
 			itemIcon.gameObject.SetActive(true);
 			itemCountText.gameObject.SetActive(true);
 			itemCountText.text = count.ToString();
@@ -54,8 +56,8 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHand
 	{
 		if (CanUseItem())
 		{
-			item.Use();
-			if (item.isConsumable)
+			m_Item.Use();
+			if (m_Item.isConsumable)
 			{
 				Count--;
 			}
@@ -64,20 +66,20 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHand
 
 	private bool CanUseItem()
 	{
-		return (item != null && count > 0);
+		return (m_Item != null && count > 0);
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if (item != null)
+		if (m_Item != null)
 		{
-			Inventory.instance.DisplayMessage(item);
+			Inventory.instance.DisplayMessage(m_Item);
 		}
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-		if (item != null)
+		if (m_Item != null)
 		{
 			Inventory.instance.DisplayMessage();
 		}
