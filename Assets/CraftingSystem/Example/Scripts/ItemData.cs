@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemData : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHandler,*/ IPointerExitHandler
+public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	Item m_Item = null;
 

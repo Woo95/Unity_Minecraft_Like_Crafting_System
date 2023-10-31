@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum eItemType   /* !WARNING! - When generating Recipe Code, it exclude some of the X chars. So, Don't use any X char for Itemtypes!!! - !WARNING! */
