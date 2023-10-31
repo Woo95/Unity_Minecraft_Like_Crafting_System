@@ -60,7 +60,7 @@ public class Crafting : MonoBehaviour
 		while (lastCharIndex >= 0 && inputCode[lastCharIndex] == 'X') // back
 			lastCharIndex--;
 
-		if (firstCharIndex <= lastCharIndex)	// combine
+		if (firstCharIndex < lastCharIndex)	// combine
 			return inputCode.Substring(firstCharIndex, lastCharIndex - firstCharIndex + 1);
 
 		return "";
