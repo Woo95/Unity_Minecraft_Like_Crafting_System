@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c25f831b93c7d04aaeafcd49bac4679, type: 3}
-  m_Name: Aurum
+  m_Name: Gold Bar
   m_EditorClassIdentifier: 
   input:
   - {fileID: 11400000, guid: 21fadbf5a74fbd34782ced7dcd99d508, type: 2}
