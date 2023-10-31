@@ -16,4 +16,4 @@ MonoBehaviour:
   description: The element known as Ag. Or was it Ab? or Ae? Anyway it is shiny and
     valuable
   isConsumable: 0
-  itemType: 4
+  itemType: 3

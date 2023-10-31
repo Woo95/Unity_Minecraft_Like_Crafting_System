@@ -5,7 +5,7 @@ using UnityEngine;
 public enum eItemType
 {
     XX, // empty
-    A1, A2, A3, A4,
+    A1, A2, A3, B1,
     C1, C2, C3, C4,
     C5, C6, F1, O1,
     P1, P2, S1, S2,
