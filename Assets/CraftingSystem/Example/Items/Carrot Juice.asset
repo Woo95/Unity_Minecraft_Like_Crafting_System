@@ -16,4 +16,4 @@ MonoBehaviour:
   description: Carrot Juice. Wait...?! Perhaps the sword was not a sword but actually
     Carrot?!
   isConsumable: 1
-  itemType: 6
+  itemType: 3

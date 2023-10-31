@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 23a3136e4c22db247bb6a5e7a441dcb6, type: 3}
   description: It's Coal.
   isConsumable: 0
-  itemType: 9
+  itemType: 6

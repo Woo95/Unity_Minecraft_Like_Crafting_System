@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 	}
 	#endregion
 
-	List<ItemSlot> itemSlots = new List<ItemSlot>();
+	//List<ItemSlot> itemSlots = new List<ItemSlot>();
 
     [SerializeField]
     GameObject inventoryPanel;
@@ -24,10 +24,10 @@ public class Inventory : MonoBehaviour
 
 	void Start()
     {
-        //Read all itemSlots as children of inventory panel
-        itemSlots = new List<ItemSlot>(
-            inventoryPanel.transform.GetComponentsInChildren<ItemSlot>()
-            );
+        ////Read all itemSlots as children of inventory panel
+        //itemSlots = new List<ItemSlot>(
+        //    inventoryPanel.transform.GetComponentsInChildren<ItemSlot>()
+        //    );
     }
 
     public void DisplayMessage(Item item = null)

@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5a3ea5d0395ca6044a257cf054b287ed, type: 3}
   description: It's a broken chest. You could use it to make multiple plank.
   isConsumable: 0
-  itemType: 7
+  itemType: 4
