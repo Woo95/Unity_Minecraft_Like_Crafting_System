@@ -6,3 +6,7 @@ Characters -16x18-rpg-characters-hair-clothing-pack, by Charles Gabriel - https:
 ################ CC0 ################ 
 Items by Henrique Lazarini (7Soul1) - https://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg 
 UI by Buch - https://opengameart.org/content/golden-ui
+
+#####################################
+Crafting Algorithm Idea from David Gouveia
+https://gamedev.stackexchange.com/questions/21586/how-could-i-implement-something-like-minecrafts-crafting-grid
