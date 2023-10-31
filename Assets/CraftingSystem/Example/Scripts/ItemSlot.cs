@@ -134,6 +134,20 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
 		Destroy(cursorItemData.gameObject);
 	}
+
+	public void StackAllItemSlotToCursor()
+	{
+		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();
+
+		cursorItemData.Count += m_ItemData.Count;
+
+		if (m_ItemData != null)	// destroy all item from slot
+		{
+			Destroy(m_ItemData.gameObject);
+			m_ItemData = null;
+		}
+	}
+
 	public void StackOneItemCursorToSlot()
 	{
 		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();

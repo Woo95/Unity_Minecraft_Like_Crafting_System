@@ -75,24 +75,7 @@ public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
 		}
 		return outputItemData;
 	}
-
-	void StackAllItemSlotToCursor()
-	{
-		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();
-
-		cursorItemData.Count += m_ItemData.Count;
-
-		DestroyItem();
-	}
-
-	public void DestroyItem()
-	{
-		if (m_ItemData != null)
-		{
-			Destroy(m_ItemData.gameObject);
-			m_ItemData = null;
-		}
-	}
+	
 	#endregion
 
 	#region InputPanel Handler
