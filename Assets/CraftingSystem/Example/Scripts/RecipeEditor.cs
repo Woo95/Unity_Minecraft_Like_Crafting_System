@@ -12,8 +12,8 @@ public class RecipeEditor : Editor
 
 		int gridSize = Mathf.CeilToInt(Mathf.Sqrt(recipe.input.Length));
 
-		EditorGUILayout.LabelField("Recipe Input (3x3):", EditorStyles.boldLabel);
-		for (int i = 0; i < gridSize; i++) // display the 3x3 grid of input items
+		EditorGUILayout.LabelField("Recipe Input (" + gridSize + "x" + gridSize + "):", EditorStyles.boldLabel);
+		for (int i = 0; i < gridSize; i++) // display the nxn grid of input items
 		{
 			EditorGUILayout.BeginHorizontal();
 			for (int j = 0; j < gridSize; j++)
