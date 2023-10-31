@@ -141,7 +141,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
 		cursorItemData.Count += m_ItemData.Count;
 
-		if (m_ItemData != null)	// destroy all item from slot
+		DestroyCurrentItem();
+	}
+	public void DestroyCurrentItem()
+	{
+		if (m_ItemData != null)
 		{
 			Destroy(m_ItemData.gameObject);
 			m_ItemData = null;

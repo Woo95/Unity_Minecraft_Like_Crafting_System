@@ -69,7 +69,7 @@ public class Crafting : MonoBehaviour
 	#region Craft System
 	public void InteractInputPanel()    // function calls from the CraftingInputSlot.cs only if any change on InputPanel
 	{
-		craftingOutputSlot.DestroyItem();	// to reset output item
+		craftingOutputSlot.DestroyCurrentItem();	// to reset output item
 
 		List<ItemSlot> craftInputList =
 			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
