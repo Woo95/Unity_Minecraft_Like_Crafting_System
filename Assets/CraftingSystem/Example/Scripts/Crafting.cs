@@ -41,12 +41,11 @@ public class Crafting : MonoBehaviour
 	string GenerateInputCode(Item[] input)
 	{
 		string inputCode = "";
-
 		for (int i = 0; i < input.Length; i++)
 		{
 			if (i > 0 && i % 3 == 0)
 				if (input[i-1] != null && input[i] != null)
-					inputCode += '\\';
+					inputCode += '\\';  // if item from current and next line has continous item
 
 			inputCode += (input[i] != null) ?
 				input[i].itemType.ToString() : ((eItemType)0).ToString();
