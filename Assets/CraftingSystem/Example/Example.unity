@@ -1012,6 +1012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crafting
       objectReference: {fileID: 0}
+    - target: {fileID: 8515098880834198939, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
+      propertyPath: recipeCode.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8751068148422374571, guid: a5dedf3894a59b0448af2ba9c6ee8133, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

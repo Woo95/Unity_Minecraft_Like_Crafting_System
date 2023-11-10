@@ -41,10 +41,15 @@ public class Crafting : MonoBehaviour
 	string GenerateInputCode(Item[] input)
 	{
 		string inputCode = "";
-		foreach (Item item in input)
+
+		for (int i = 0; i < input.Length; i++)
 		{
-			inputCode += (item != null) ? 
-				item.itemType.ToString() : ((eItemType)0).ToString();
+			if (i > 0 && i % 3 == 0)
+				if (input[i-1] != null && input[i] != null)
+					inputCode += '\\';
+
+			inputCode += (input[i] != null) ?
+				input[i].itemType.ToString() : ((eItemType)0).ToString();
 		}
 		return ModifyInputCode(inputCode);
 	}
