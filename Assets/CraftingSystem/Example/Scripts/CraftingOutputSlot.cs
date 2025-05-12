@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CraftingOutputSlot : ItemSlot, IPointerClickHandler
+public class CraftingOutputSlot : ItemSlot
 {
 	private List<ItemSlot> m_CraftInputList;
 	public override void OnPointerClick(PointerEventData eventData)
