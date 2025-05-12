@@ -10,8 +10,8 @@ public class ItemCursor : MonoBehaviour
 	}
 	#endregion
 
-	private ItemData m_ItemData;
-	private Item m_Item;
+	private ItemInstance m_ItemData;
+	private ItemInfo m_Item;
 
 	private void Update()
 	{
@@ -21,17 +21,17 @@ public class ItemCursor : MonoBehaviour
 		}
 	}
 
-	public Item GetCursorItem()
+	public ItemInfo GetCursorItem()
 	{
 		return m_Item;
 	}
 
-	public ItemData GetCursorItemData()
+	public ItemInstance GetCursorItemData()
 	{
 		return m_ItemData;
 	}
 
-	public void SetCursorItemData(ItemData itemData, Item item)
+	public void SetCursorItemData(ItemInstance itemData, ItemInfo item)
 	{
 		m_Item = item;
 		m_ItemData = itemData;
@@ -44,7 +44,7 @@ public class ItemCursor : MonoBehaviour
 		return m_ItemData != null;
 	}
 
-	public void ClearCursor(out ItemData itemDataOut, out Item itemOut)
+	public void ClearCursor(out ItemInstance itemDataOut, out ItemInfo itemOut)
 	{
 		itemOut = m_Item;
 		m_Item = null;

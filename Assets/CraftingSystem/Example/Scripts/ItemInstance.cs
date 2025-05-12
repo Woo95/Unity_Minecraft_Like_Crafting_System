@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ItemInstance : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-	Item m_Item = null;
+	ItemInfo m_ItemInfo = null;
 
 	[SerializeField]
 	int count = 0;
@@ -23,9 +23,9 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	[SerializeField] 
 	TextMeshProUGUI itemCountText;
 
-	public void SetItem(Item item)
+	public void SetItem(ItemInfo item)
 	{
-		m_Item = item;
+		m_ItemInfo = item;
 		itemIcon = GetComponent<Image>();
 		gameObject.name = item.name;
 		count = count == 0 ? 1 : count;
@@ -45,7 +45,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		else
 		{
 			//set sprite to the one from the item
-			itemIcon.sprite = m_Item.icon;
+			itemIcon.sprite = m_ItemInfo.icon;
 			itemIcon.gameObject.SetActive(true);
 			itemCountText.gameObject.SetActive(true);
 			itemCountText.text = count.ToString();
@@ -71,15 +71,15 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if (m_Item != null)
+		if (m_ItemInfo != null)
 		{
-			Inventory.instance.DisplayMessage(m_Item);
+			Inventory.instance.DisplayMessage(m_ItemInfo);
 		}
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-		if (m_Item != null)
+		if (m_ItemInfo != null)
 		{
 			Inventory.instance.DisplayMessage();
 		}

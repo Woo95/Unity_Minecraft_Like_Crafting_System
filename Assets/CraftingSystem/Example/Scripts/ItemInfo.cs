@@ -11,7 +11,7 @@ public enum eItemType   /* !WARNING! - When generating Recipe Code, it exclude s
 }
 //Attribute which allows right click->Create
 [CreateAssetMenu(fileName = "New Item", menuName = "Items/New Item")]
-public class Item : ScriptableObject //Extending SO allows us to have an object which exists in the project, not in the scene
+public class ItemInfo : ScriptableObject //Extending SO allows us to have an object which exists in the project, not in the scene
 {
     public Sprite icon;
     [TextArea]

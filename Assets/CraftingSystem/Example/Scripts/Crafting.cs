@@ -30,7 +30,7 @@ public class Crafting : MonoBehaviour
 				return;
 			}
 
-			Item[] input = recipeList[i].input;
+			ItemInfo[] input = recipeList[i].input;
 			string inputCode = GenerateInputCode(input);
 			recipeCode.Add(inputCode);
 		}
@@ -38,7 +38,7 @@ public class Crafting : MonoBehaviour
 	#endregion
 
 	#region Code Handler
-	string GenerateInputCode(Item[] input)
+	string GenerateInputCode(ItemInfo[] input)
 	{
 		string inputCode = "";
 		int gridSize = Mathf.CeilToInt(Mathf.Sqrt(recipeList.Count));
@@ -79,7 +79,7 @@ public class Crafting : MonoBehaviour
 		List<ItemSlot> craftInputList =
 			new List<ItemSlot>(craftingInputPanel.transform.GetComponentsInChildren<ItemSlot>());
 
-		Item[] input = new Item[craftInputList.Count];
+		ItemInfo[] input = new ItemInfo[craftInputList.Count];
 		for (int i = 0; i < craftInputList.Count; i++) // stores the 'Item' objects from the craft input slots
 		{
 			input[i] = craftInputList[i].GetItem();

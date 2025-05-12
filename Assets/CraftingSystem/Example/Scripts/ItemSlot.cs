@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
-    public Item m_Item = null;
+    public ItemInfo m_Item = null;
 
     [SerializeField]
-    protected ItemData m_ItemData;
+    protected ItemInstance m_ItemInstance;
 	protected Image image;
 
 	void Start()
@@ -15,24 +15,24 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 		image = GetComponent<Image>();
 		if (m_Item)
         {
-            m_ItemData.SetItem(m_Item);
+            m_ItemInstance.SetItem(m_Item);
 			image.raycastTarget = true;
 		}
 		else
 		{
-			if (m_ItemData)
+			if (m_ItemInstance)
 			{
-				Destroy(m_ItemData.gameObject);
-				m_ItemData = null;
+				Destroy(m_ItemInstance.gameObject);
+				m_ItemInstance = null;
 			}
 		}
 	}
 
-	public ItemData GetItemData()
+	public ItemInstance GetItemData()
 	{
-		return m_ItemData;
+		return m_ItemInstance;
 	}
-	public Item GetItem()
+	public ItemInfo GetItem()
 	{
 		return m_Item;
 	}
@@ -81,24 +81,24 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 	#region OnPointerClick Events
 	public void PickItem()
 	{
-		m_ItemData.GetComponent<Image>().raycastTarget = false;
-		ItemCursor.instance.SetCursorItemData(m_ItemData, m_Item);
+		m_ItemInstance.GetComponent<Image>().raycastTarget = false;
+		ItemCursor.instance.SetCursorItemData(m_ItemInstance, m_Item);
 
 		m_Item = null;
-		m_ItemData = null;
+		m_ItemInstance = null;
 	}
 	public void PlaceItem()
     {
-		ItemCursor.instance.ClearCursor(out m_ItemData, out m_Item);
+		ItemCursor.instance.ClearCursor(out m_ItemInstance, out m_Item);
 
-		m_ItemData.transform.SetParent(transform);
-		m_ItemData.GetComponent<Image>().raycastTarget = true;
-		m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+		m_ItemInstance.transform.SetParent(transform);
+		m_ItemInstance.GetComponent<Image>().raycastTarget = true;
+		m_ItemInstance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 	}
 	public void SwapItem()
 	{
-		ItemData slotItemData = m_ItemData;
-		Item slotItem = m_Item;
+		ItemInstance slotItemData = m_ItemInstance;
+		ItemInfo slotItem = m_Item;
 
 		PlaceItem();
 
@@ -108,15 +108,15 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
 	public void PickHalfOfItem()
 	{
-		int totalItemCount = m_ItemData.Count;
+		int totalItemCount = m_ItemInstance.Count;
 		int halfItemCount = (int)(totalItemCount * 0.5f);
 
 		if (halfItemCount <= 0)
 			return;
 
-		m_ItemData.Count = halfItemCount;
+		m_ItemInstance.Count = halfItemCount;
 
-		ItemData cursorItemData = Instantiate(m_ItemData); // create a duplicate
+		ItemInstance cursorItemData = Instantiate(m_ItemInstance); // create a duplicate
 		cursorItemData.SetItem(m_Item);
 		cursorItemData.gameObject.name = m_Item.name;
 
@@ -127,35 +127,35 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 	}
 	public void StackAllItemCursorToSlot()
 	{
-		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();
+		ItemInstance cursorItemData = ItemCursor.instance.GetCursorItemData();
 
-		m_ItemData.Count += cursorItemData.Count;
+		m_ItemInstance.Count += cursorItemData.Count;
 
 		Destroy(cursorItemData.gameObject);
 	}
 
 	public void StackAllItemSlotToCursor()
 	{
-		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();
+		ItemInstance cursorItemData = ItemCursor.instance.GetCursorItemData();
 
-		cursorItemData.Count += m_ItemData.Count;
+		cursorItemData.Count += m_ItemInstance.Count;
 
 		DestroyCurrentItem();
 	}
 	public void DestroyCurrentItem()
 	{
-		if (m_ItemData != null)
+		if (m_ItemInstance != null)
 		{
-			Destroy(m_ItemData.gameObject);
-			m_ItemData = null;
+			Destroy(m_ItemInstance.gameObject);
+			m_ItemInstance = null;
 		}
 	}
 
 	public void StackOneItemCursorToSlot()
 	{
-		ItemData cursorItemData = ItemCursor.instance.GetCursorItemData();
+		ItemInstance cursorItemData = ItemCursor.instance.GetCursorItemData();
 
-		m_ItemData.Count += 1;
+		m_ItemInstance.Count += 1;
 		cursorItemData.Count -= 1;
 
 		if (cursorItemData.Count <= 0)
@@ -164,22 +164,22 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 	public void DropOneItemCursorToSlot()
 	{
 		ItemCursor itemCursorIns = ItemCursor.instance;
-		ItemData cursorItemData = itemCursorIns.GetCursorItemData();
-		Item cursorItem = itemCursorIns.GetCursorItem();
+		ItemInstance cursorItemData = itemCursorIns.GetCursorItemData();
+		ItemInfo cursorItem = itemCursorIns.GetCursorItem();
 		cursorItemData.Count -= 1;
 
-		ItemData slotItemData = Instantiate(cursorItemData);
-		m_ItemData = slotItemData;
+		ItemInstance slotItemData = Instantiate(cursorItemData);
+		m_ItemInstance = slotItemData;
 		m_Item = cursorItem;
 
-		m_ItemData.SetItem(m_Item);
-		m_ItemData.gameObject.name = m_Item.name;
-		m_ItemData.transform.SetParent(transform);
+		m_ItemInstance.SetItem(m_Item);
+		m_ItemInstance.gameObject.name = m_Item.name;
+		m_ItemInstance.transform.SetParent(transform);
 
-		m_ItemData.GetComponent<Image>().raycastTarget = true;
-		m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-		m_ItemData.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-		m_ItemData.Count = 1;
+		m_ItemInstance.GetComponent<Image>().raycastTarget = true;
+		m_ItemInstance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+		m_ItemInstance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+		m_ItemInstance.Count = 1;
 
 		if (cursorItemData.Count <= 0)
 			Destroy(cursorItemData.gameObject);
@@ -189,15 +189,15 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 	#region OnPointerClick Conditions
 	public bool SlotAndCursor()
 	{
-        return (m_Item && m_ItemData) && ItemCursor.instance.ItemCursorExist();
+        return (m_Item && m_ItemInstance) && ItemCursor.instance.ItemCursorExist();
 	}
 	public bool SlotAndNoCursor()
 	{
-        return (m_Item && m_ItemData) && !ItemCursor.instance.ItemCursorExist();
+        return (m_Item && m_ItemInstance) && !ItemCursor.instance.ItemCursorExist();
 	}
 	public bool NoSlotAndCursor()
 	{
-		return !(m_Item && m_ItemData) && ItemCursor.instance.ItemCursorExist();
+		return !(m_Item && m_ItemInstance) && ItemCursor.instance.ItemCursorExist();
 	}
 
 	public bool SlotAndCursorSameItem()

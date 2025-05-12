@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
 	[SerializeField]
 	private TMPro.TextMeshProUGUI nameText;
 
-    public void DisplayMessage(Item item = null)
+    public void DisplayMessage(ItemInfo item = null)
     {
         if (item)
         {

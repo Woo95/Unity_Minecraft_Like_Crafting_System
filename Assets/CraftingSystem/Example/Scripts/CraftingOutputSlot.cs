@@ -28,20 +28,20 @@ public class CraftingOutputSlot : ItemSlot
 	{
 		m_CraftInputList = craftInputList;
 
-		ItemData outputPrefab = OutputItemData();
+		ItemInstance outputPrefab = OutputItemData();
 		if (outputPrefab == null) // error checker
 			return;
 
 		m_Item = foundRecipe.output;
-		m_ItemData = Instantiate(outputPrefab);
-		m_ItemData.SetItem(m_Item);
-		m_ItemData.gameObject.name = m_Item.name;
-		m_ItemData.transform.SetParent(transform);
+		m_ItemInstance = Instantiate(outputPrefab);
+		m_ItemInstance.SetItem(m_Item);
+		m_ItemInstance.gameObject.name = m_Item.name;
+		m_ItemInstance.transform.SetParent(transform);
 
-		m_ItemData.GetComponent<Image>().raycastTarget = true;
-		m_ItemData.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-		m_ItemData.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-		m_ItemData.Count = MinInputItemAmount() * foundRecipe.outputAmount;
+		m_ItemInstance.GetComponent<Image>().raycastTarget = true;
+		m_ItemInstance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+		m_ItemInstance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+		m_ItemInstance.Count = MinInputItemAmount() * foundRecipe.outputAmount;
 	}
 
 	int MinInputItemAmount()
@@ -49,7 +49,7 @@ public class CraftingOutputSlot : ItemSlot
 		int outputItemAmount = int.MaxValue;
 		foreach (ItemSlot item in m_CraftInputList)
 		{
-			ItemData itemData = item.GetItemData();
+			ItemInstance itemData = item.GetItemData();
 			if (itemData != null)
 			{
 				if (itemData.Count <= outputItemAmount)
@@ -61,12 +61,12 @@ public class CraftingOutputSlot : ItemSlot
 		return outputItemAmount;
 	}
 
-	ItemData OutputItemData()
+	ItemInstance OutputItemData()
 	{
-		ItemData outputItemData = null;
+		ItemInstance outputItemData = null;
 		foreach (ItemSlot item in m_CraftInputList)
 		{
-			ItemData itemData = item.GetItemData();
+			ItemInstance itemData = item.GetItemData();
 			if (itemData != null)
 			{
 				outputItemData = itemData;
@@ -84,7 +84,7 @@ public class CraftingOutputSlot : ItemSlot
 		int lowestItemCount = MinInputItemAmount();
 		foreach (ItemSlot itemSlot in m_CraftInputList)
 		{
-			ItemData itemData = itemSlot.GetItemData();
+			ItemInstance itemData = itemSlot.GetItemData();
 			
 			if (itemData != null)
 			{
